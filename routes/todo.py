@@ -18,8 +18,8 @@ def get_own_todos(current_user: User = Depends(get_current_user),
 
 
 @app.post("/api/todos", response_model=TODO)
-def add_a_todo(todo_data: schemas.TODOCreate,
-          	current_user: models.User = Depends(get_current_user),
+def add_a_todo(todo_data: TodoSchema.TODOCreate,
+          	current_user: User = Depends(get_current_user),
           	db: Session = Depends(get_db)):
    """add a TODO"""
    todo = create_meal(db, current_user, meal_data)
