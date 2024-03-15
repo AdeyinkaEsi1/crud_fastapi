@@ -22,7 +22,7 @@ def get_password_hash(password):
    return pwd_context.hash(password)
  
 def authenticate_user(db, email: str, password: str):
-    user = crud.get_user_by_email(db, email)
+    user = get_user_by_email(db, email)
     if not user:
        return False
     if not verify_password(password, user.hashed_password):
@@ -55,7 +55,7 @@ def decode_access_token(db, token):
         token_data = schemas.TokenData(email=email)
    except jwt.PyJWTError:
        raise credentials_exception
-   user = crud.get_user_by_email(db, email=token_data.email)
+   user = get_user_by_email(db, email=token_data.email)
    if user is None:
       raise credentials_exception
    return user
