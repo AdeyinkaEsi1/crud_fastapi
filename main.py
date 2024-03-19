@@ -43,36 +43,35 @@ db: List[User] = [
 async def root():
  return {"Hello": "World",}
 
-@app.get("/api/v1/users")
+@app.get("/api/v1/users", tags=["User"])
 async def get_users():
  return db
 
-@app.post("/api/v1/users")
+@app.post("/api/v1/users", tags=["User"])
 async def create_user(user: User):
  db.append(user)
  return {"id": user.id}
 
-
-
-@app.delete("/api/v1/users/{id}")
+@app.delete("/api/v1/users/{id}", tags=["User"])
 async def delete_user(id: UUID):
   for user in db:
    if user.id == id:
     db.remove(user)
+    return {"message": "user deleted"}
    return
   raise HTTPException(
     status_code=404, detail=f"Delete user failed, id {id} not found.")
 
 
-@app.put("/api/v1/users/{id}")
+@app.put("/api/v1/users/{id}", tags=["User"])
 async def update_user(user_update: UpdateUser, id: UUID):
  for user in db:
   if user.id == id:
    if user_update.first_name is not None:
     user.first_name = user_update.first_name
    if user_update.last_name is not None:
-     user.last_name = user_update.last_name
-   if user_update.roles is not None:
-      user.roles = user_update.roles
+    user.last_name = user_update.last_name
+   if user_update.roleS is not None:
+    user.roles = user_update.roles
    return user.id
   raise HTTPException(status_code=404, detail=f"Could not find user with id: {id}")
