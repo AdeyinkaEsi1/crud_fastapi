@@ -7,6 +7,7 @@ from models.model import UpdateUser
 
 app = FastAPI()
 
+
 db: List[User] = [
  User(
  id=uuid4(),
