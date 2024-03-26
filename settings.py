@@ -1,4 +1,4 @@
-#mongo_uri = mongodb+srv://Hamid:Hmongodb1@cluster0.zaaveoa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+#mongo_uri = mongodb+srv://Hamid:Hmongp0))odb1=-21@cluster0.zaaveoa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
 """
 connection str = mongodb+srv://Hamid:<password>@cluster0.zaaveoa.mongodb.net/
@@ -8,7 +8,7 @@ connection str = mongodb+srv://Hamid:<password>@cluster0.zaaveoa.mongodb.net/
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
-MONGODB_URI = "mongodb+srv://Hamid:Hmongodb1@cluster0.zaaveoa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+MONGODB_URI = "mongodb+srv://Hamid:Hmongp0))odb1=-21@cluster0.zaaveoa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 # Create a new client and connect to the server
 client = MongoClient(MONGODB_URI, server_api=ServerApi('1'))
