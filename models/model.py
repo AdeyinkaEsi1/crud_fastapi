@@ -3,8 +3,6 @@ from pydantic import BaseModel
 from uuid import uuid4, UUID
 from typing import List, Optional
 
-
-
 class Role(str, Enum):
     admin = "admin"
     user = "user"
