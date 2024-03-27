@@ -12,17 +12,19 @@ db: List[User] = [
  User(
  id=uuid4(),
  first_name="John",
- last_name="Doe",
+ last_name="ornstein",
  gender=Gender.male,
  roles=[Role.user],
  ),
+ 
  User(
  id=uuid4(),
  first_name="Jane",
- last_name="Doe",
+ last_name="manois",
  gender=Gender.female,
  roles=[Role.user],
  ),
+
  User(
  id=uuid4(),
  first_name="James",
