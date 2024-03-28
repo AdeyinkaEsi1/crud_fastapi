@@ -25,8 +25,3 @@ class UpdateUser(BaseModel):
 
 
 
-
-from enum import Enum
-from typing import List, Optional
-from uuid import UUID, uuid4
-from pydantic import BaseModel
