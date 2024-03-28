@@ -8,15 +8,14 @@ from models.model import UpdateUser
 app = FastAPI()
 
 
-db: List[User] = [
- User(
+db: List[User] = [User(
  id=uuid4(),
  first_name="John",
  last_name="ornstein",
  gender=Gender.male,
  roles=[Role.user],
  ),
- 
+
  User(
  id=uuid4(),
  first_name="Jane",
