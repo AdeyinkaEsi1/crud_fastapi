@@ -15,7 +15,10 @@ db: List[User] = [User(
  gender=Gender.male,
  roles=[Role.user],
  ),
-
+# ===================================================================================== short test summary info ====================================================================================== 
+# ERROR tests/routes/test_presets.py::TestPresets::test_create_and_delete_preset_integration - pymongo.errors.ServerSelectionTimeoutError: 
+# SSL handshake failed: ac-ukcsyby-shard-00-00.k7xys16.mongodb.net:27017: _ssl.c:989: 
+# The handshake operation timed out,ac-ukcsyby-shard-00-02.k7xys16...
  User(
  id=uuid4(),
  first_name="Jane",
