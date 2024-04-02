@@ -1,7 +1,13 @@
+from bson import ObjectId
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+import os
+from pymongo.errors import OperationFailure
 
+DATABASE_URL = os.environ.get("MONGO_CONNECTION_URI")
 
 # Create a new client and connect to the server
-# client = MongoClient(uri, server_api=ServerApi('1'))
+client = MongoClient(DATABASE_URL, server_api=ServerApi('1'))
 
 # Send a ping to confirm a successful connection
 # try:
@@ -16,11 +22,11 @@
 
 
 
-# # Get reference to the CRUD_FASTAPI database
-# db = client.sample_mflix
+# Get reference to the CRUD_FASTAPI database
+db = client.Test_Database
 
 # get reference to users collection
-# users_collection = db.users
+sec_collection = db.first_collection
 
 # new_users = {
 #     "name": "catelyn Starka",
@@ -28,10 +34,33 @@
 #     "password": "$2b$12$UREFwsRUoyF0CRqGNK0LzO0HM/jLhgUCNNIJ9RJAq1egt64wqq9+9ye"
 # }
 
-# result = users_collection.insert_one(new_users)
-# document_id = result.inserted_id
-# print(f"id of inserted document(new users) is {document_id}")
-# client.close
+# new_users = {
+#     "name": "james penelope",
+#     "email": "james01@mail.com",
+#     "password": "jamenojamesnoamesnookjames0109/+y21" 
+# }
+
+# try:
+#     result = first_collection.insert_one(new_users)
+#     document_id = result.inserted_id
+#     print(f"id of inserted document(new users) is {document_id}")
+# except OperationFailure as e:
+#     print("Error while inserting document:", e)
+
+documents_to_delete = {"_id": ObjectId('660b83331d0b63f1e1c525cd')}
+result = sec_collection.delete_one(documents_to_delete)
+
+client.close
+
+cursor = sec_collection.find({})
+print()
+for doc in cursor:
+    print(doc)
+
+# db.getCollection('first_collection').dropIndexes()
+
+
+
 
 """"
 MOMGODB COMMS
