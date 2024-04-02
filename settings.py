@@ -26,7 +26,7 @@ client = MongoClient(DATABASE_URL, server_api=ServerApi('1'))
 db = client.Test_Database
 
 # get reference to users collection
-sec_collection = db.first_collection
+sec_collection = db.sec_collection
 
 # new_users = {
 #     "name": "catelyn Starka",
